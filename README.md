@@ -32,13 +32,16 @@
 	- concept
 	- user_id
 	- main_image
+
 > has_many :sub_images
+
 > belongs_to :user
 
 #### sub_image
 - images
 	- thumbnail
 	- prototype_id
+
 > belongs_to :prototype
 
 #### user
@@ -50,4 +53,5 @@
 	- profile
 	- works
 	- avatar ＊プロフィール画像
+
 > has_many :protptypes
