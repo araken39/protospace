@@ -37,16 +37,16 @@
 	- concept
 	- user_id
 ###### association
-- has_many :sub_images
+- has_many :images
 - has_many :comments
 - belongs_to :user
 - has_many :likes
 
-#### images
+#### image
 - images
 	- thumbnail
 	- prototype_id
-	- main_or_sub
+	- status
 ###### association
 - belongs_to :prototype
 
@@ -77,13 +77,8 @@
 
 ####  likes (便利なGemがあるらしい)
 - likes
-	- int
 	- prototype_id
 	- user_id
 ###### association
 - belongs_to :prototype
 - belongs_to :user
-
-### tags （acts_as_taggable_onが自動で色々やってくるれる）
-
->
