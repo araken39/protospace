@@ -36,17 +36,19 @@
 	- catch_copy
 	- concept
 	- user_id
+
 ###### association
-- has_many :images
+- has_many :captured_images
 - has_many :comments
 - belongs_to :user
 - has_many :likes
 
-#### image
-- images
+#### CapturedImage
+- caputred_images
 	- thumbnail
 	- prototype_id
 	- status
+
 ###### association
 - belongs_to :prototype
 
@@ -59,6 +61,7 @@
 	- profile
 	- works
 	- avatar ＊プロフィール画像
+
 ###### association
 - has_many :protptypes
 - has_many : comments
@@ -68,9 +71,10 @@
 
 #### comment
 - comments
-		- text
-		- user_id
-		- prototype_id
+	- text
+	- user_id
+	- prototype_id
+
 ###### association
 - belongs_to :prototype
 - belongs_to :user
@@ -79,6 +83,7 @@
 - likes
 	- prototype_id
 	- user_id
+
 ###### association
 - belongs_to :prototype
 - belongs_to :user
