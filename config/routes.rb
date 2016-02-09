@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
- root 'prototype#index'
- 
+ root 'top#index'
+
 
 end
