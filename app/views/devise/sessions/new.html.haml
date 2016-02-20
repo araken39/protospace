@@ -1,18 +1,19 @@
-.col-md-8.col-md-offset-2
-  %header.row.user-nav.row
-    .col-md-12
-      %h2 Log in
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .user-name_image.row.user-email.col-md-10
-          = f.label :email
-          %br/
-          = f.email_field :email, autofocus: true
-        .user-name_image.row.user-password.col-md-10
-          = f.label :password
-          %br/
-          = f.password_field :password, autocomplete: "off"
-          - if devise_mapping.rememberable?
-            = f.check_box :remember_me
-            = f.label :remember_me
-        .row.text-center.user-btn
-          = f.submit "Log in", class: 'btn btn-lg btn-primary btn-block'
+.container.user-new{action: ""}
+  .col-md-8.col-md-offset-2
+    %header.row.user-nav.row
+      .col-md-12
+        %h2 Log in
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .user-name_image.row.user-email.col-md-10
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true
+          .user-name_image.row.user-password.col-md-10
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "off"
+            - if devise_mapping.rememberable?
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .row.text-center.user-btn
+            = f.submit "Log in", class: 'btn btn-lg btn-primary btn-block'
