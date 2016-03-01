@@ -8,7 +8,7 @@
           .user-name_image.row.user-name.col-md-10
             = f.label :username
             %br/
-            = f.text_field :username, autofocus: true
+            = f.text_field :username, autofocus: true, required: true
           .user-name_image.row.user-image.col-md-2
             = f.label :avatar
             %br/
@@ -16,14 +16,14 @@
           .user-name_image.row.user-name.col-md-10
             = f.label :email
             %br/
-            = f.email_field :email
+            = f.email_field :email, required: true
           .user-name_image.row.user-name.col-md-10
             = f.label :password
             - if @minimum_password_length
               %em
                 (#{@minimum_password_length} characters minimum)
             %br/
-            = f.password_field :password, autocomplete: "off"
+            = f.password_field :password, autocomplete: "off", required: true
           .user-name_image.row.user-name.col-md-10
             = f.label :password_confirmation
             %br/
@@ -31,7 +31,7 @@
           .user-name_image.row.user-name.col-md-10
             = f.label :member
             %br/
-            = f.text_field :member
+            = f.text_field :member, required: true
           .user-name_image.row.user-name.col-md-10
             = f.label :profile
             %br/
