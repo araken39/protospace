@@ -9,11 +9,6 @@
     .navbar-collapse.collapse.navbar-responsive-collapse
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
-          %li
-            .btn.btn-primary.navbar-btn
-              = link_to("Get Started",new_user_session_path)
-      - else
-        %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", href:"#", role:"button"}
               UserName
@@ -26,3 +21,8 @@
           %li
             .btn.btn-primary.navbar-btn
               = link_to("New Proto","/proto/new")
+      - else
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            .btn.btn-primary.navbar-btn
+              = link_to("Get Started",new_user_session_path)
