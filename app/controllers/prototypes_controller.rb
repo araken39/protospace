@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   def index
   end
   def new
-    @prototype = Prototype.new(create_params)
+    @prototype = Prototype.new
     3.times { @prototype.captured_images.build }
   end
   private
