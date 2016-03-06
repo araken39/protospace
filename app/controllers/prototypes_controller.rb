@@ -19,7 +19,7 @@ class PrototypesController < ApplicationController
         :catch_copy,
         :concept,
         captured_images_attributes: [:thumbnail, :status]
-      )
+      ).merge(user_id: current_user.id)
   end
 
 end
