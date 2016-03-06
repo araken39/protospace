@@ -5,7 +5,7 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-    3.times { @prototype.captured_images.build }
+    @prototype.captured_images.build
   end
 
   def create
