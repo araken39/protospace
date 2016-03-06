@@ -9,7 +9,7 @@ class PrototypesController < ApplicationController
 
   def create
     Prototype.create(create_params)
-    redirect_to controller: :prototypes, action: :index
+    redirect_to action: :index
   end
 
   private
