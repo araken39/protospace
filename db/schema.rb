@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160305093745) do
     t.integer  "prototype_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",       limit: 255
+    t.integer  "status",       limit: 4
   end
 
   create_table "prototypes", force: :cascade do |t|
