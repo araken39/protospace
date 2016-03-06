@@ -1,24 +1,30 @@
-%form.container.proto-new{:action => ""}
+.container.proto-new
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
       .col-md-12
-        = form_for @prototype do |f|
+        = form_for(@prototype) do |f|
           = f.label :Title
-          %%br
+          %br
           = f.text_field :title, autofocus: true, required: true, placeholder:"Title", class: "proto-new-title"
           .row
             .col-md-12
               .cover-image-uploader
                 = f.label :MainThumbnail
                 %br
-                = f.file_field :thumbnail, required: true
-            .col-md-12
+                = f.fields_for :captured_images do |captured_image|
+                  = captured_image.file_field :thumbnail, required: true
+                  = captured_image.hidden_field :status, value: "0"
               %br
               = f.label :Subthumbnails
               %ul.proto-sub-list.list-group
                 = f.fields_for :captured_images do |captured_image|
                   %li.list-group-item.col-md-4
                     = captured_image.file_field :thumbnail, class:"image-uploader"
+                    = captured_image.hidden_field :status, value: "1"
+                    = captured_image.file_field :thumbnail, class:"image-uploader"
+                    = captured_image.hidden_field :status, value: "1"
+                    = captured_image.file_field :thumbnail, class:"image-uploader"
+                    = captured_image.hidden_field :status, value: "1"
           .row.proto-description
             .col-md-12
               =f.label :Catch_Copy
@@ -38,4 +44,3 @@
                   %input{:type => "text", :placeholder => "Application"}/
           .row.text-center.proto-btn
             = f.submit "Publish", class: 'btn btn-lg btn-primary btn-block'
-            
