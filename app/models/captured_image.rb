@@ -1,5 +1,5 @@
 class CapturedImage < ActiveRecord::Base
   belongs_to :prototype
   mount_uploader :thumbnail, CapturedImageUploader
-  enum status: { main: "0", sub: "1"}
+  enum status: %i(main sub)
 end
