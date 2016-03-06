@@ -13,18 +13,15 @@
                 %br
                 = f.fields_for :captured_images do |captured_image|
                   = captured_image.file_field :thumbnail, required: true
-                  = captured_image.hidden_field :status, value: "0"
+                  = captured_image.hidden_field :status, value: "main"
               %br
               = f.label :Subthumbnails
               %ul.proto-sub-list.list-group
                 = f.fields_for :captured_images do |captured_image|
+                  -# ここはJSで後で実装をする
                   %li.list-group-item.col-md-4
                     = captured_image.file_field :thumbnail, class:"image-uploader"
-                    = captured_image.hidden_field :status, value: "1"
-                    = captured_image.file_field :thumbnail, class:"image-uploader"
-                    = captured_image.hidden_field :status, value: "1"
-                    = captured_image.file_field :thumbnail, class:"image-uploader"
-                    = captured_image.hidden_field :status, value: "1"
+                    = captured_image.hidden_field :status, value: "sub"
           .row.proto-description
             .col-md-12
               =f.label :Catch_Copy
