@@ -22,6 +22,7 @@ class PrototypesController < ApplicationController
         :concept,
         captured_images_attributes: [:thumbnail, :status]
       )
+
   end
 
 end
