@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305093745) do
+ActiveRecord::Schema.define(version: 20160306120958) do
 
   create_table "captured_images", force: :cascade do |t|
     t.string   "thumbnail",    limit: 255
+    t.integer  "status",       limit: 4
     t.integer  "prototype_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "status",       limit: 4
   end
 
   create_table "prototypes", force: :cascade do |t|
@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(version: 20160305093745) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.string   "avatar",                 limit: 255
     t.string   "username",               limit: 255
     t.string   "member",                 limit: 255
     t.string   "profile",                limit: 255
     t.string   "works",                  limit: 255
-    t.string   "avatar",                 limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
