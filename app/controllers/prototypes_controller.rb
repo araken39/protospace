@@ -1,5 +1,6 @@
 class PrototypesController < ApplicationController
   def index
+    @prototypes = Prototype.all
   end
 
   def new
@@ -11,6 +12,7 @@ class PrototypesController < ApplicationController
     Prototype.create(create_params)
     redirect_to action: :index
   end
+
 
   private
   def create_params
