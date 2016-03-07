@@ -3,41 +3,41 @@
     .col-md-6
       .media
         .media-left
-          =link_to image_tag("#{prototype.user.avatar}",alt: "64x64",style: "width: 64px; height: 64px;")
-          %a{:href => "#"}
-            %img.media-object{:alt => "64x64", "data-holder-rendered" => "true", "data-src" => "holder.js/64x64", :src => "d", :style => "width: 64px; height: 64px;"}/
+          =link_to image_tag("#{@prototype.user.avatar}",alt: "64x64",style: "width: 64px; height: 64px;")
         .media-body
           %h4#top-aligned-media.media-heading
-            Top aligned media
+          = "#{@prototype.title}"
           .proto-user
-            %a{:href => ""} by User
-            %span.degree we-b inc. Designer
+            =link_to "#{@prototype.user.username}",user_path
+            %span.degree
+              = "#{@prototype.user.member}"
 
     .col-md-6.text-right
       %button.btn.btn-default
+        -# like機能の実装で修正
         = image_tag("icon_heart.svg")
         Like
         %span.num 20
   .row
     .col-md-9
-      = image_tag("sample.png", :class => 'img-responsive')
+      = image_tag("#{@prototype.captured_images.find_by(status: 0).thumbnail}", :class => 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
+        -# ここはsub画像を複数投稿できるようにJSを導入してからeachで回すようにする
         %li.list-group-item
-          = image_tag("sample.png", :class => 'img-responsive')
-        %li.list-group-item
-          = image_tag("sample.png", :class => 'img-responsive')
-        %li.list-group-item
-          = image_tag("sample.png", :class => 'img-responsive')
+          = image_tag("#{@prototype.captured_images.find_by(status: 1).thumbnail}", :class => 'img-responsive')
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
-      %p Type something
+      %p
+        = @prototype.catch_copy
     .col-md-6
       %h4 Concept
-      %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis
+      %p
+        = @prototype.concept
     .col-md-3
       %h4 Tag List
+      -# タグ機能のときに書き換えを行う
       %ul.proto-tag-list.list-inline
         %li
           %a{:href => "#", :class => "btn btn-default"} iPad
@@ -46,6 +46,7 @@
   .row.proto-comments
     %h4.col-md-12
       Comments
+      -# 以下はコメント機能の実装で書き換えを行う
       %span.num (10)
     .col-md-8
       .media
