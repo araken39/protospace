@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up).push(:avatar, :username, :works, :member, :profile)
-    devise_parameter_sanitizer.for(:account_update).push(:avatar, :username, :works, :member, :profile)
+    devise_parameter_sanitizer.for(:sign_up).push(:avatar, :name, :works, :member, :profile)
+    devise_parameter_sanitizer.for(:account_update).push(:avatar, :name, :works, :member, :profile)
   end
 
 end
