@@ -18,6 +18,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+      t.string   :avatar
+      t.string   :username
+      t.string   :member
+      t.string   :profile
+      t.string   :works
 
       ## Confirmable
       # t.string   :confirmation_token
