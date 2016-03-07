@@ -14,8 +14,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
-
+    set_prototype
   end
 
 
@@ -27,6 +26,9 @@ class PrototypesController < ApplicationController
         :concept,
         captured_images_attributes: [:thumbnail, :status]
       ).merge(user_id: current_user.id)
+  end
+  def set_prototype
+    @prototype = Prototype.find(params[:id])
   end
 
 end
