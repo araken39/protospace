@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160306120958) do
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
     t.string   "avatar",                 limit: 255
-    t.string   "username",               limit: 255
+    t.string   "name",                   limit: 255
     t.string   "member",                 limit: 255
     t.string   "profile",                limit: 255
     t.string   "works",                  limit: 255
