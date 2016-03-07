@@ -1,14 +1,14 @@
 .col-sm-4.col-md-3.proto-content
   .thumbnail
-    = link_to image_tag(prototype.captured_images.find_by(status: 0).thumbnail),prototype_path(prototype)
+    = link_to image_tag(set_main_thumnail(prototype)),prototype_path(prototype)
     .caption
       %h3
-      =link_to "#{prototype.title}", prototype_path(prototype)
+        = prototype.title
       .proto-meta
         .proto-user
           =link_to "#{prototype.user.username}",user_path(prototype.user)
         .proto-posted
-          = "#{prototype.created_at}"
+          = prototype.created_at
       %ul.proto-tag-list.list-inline
         -# タグはあとで実装するので今は無視
         %li
