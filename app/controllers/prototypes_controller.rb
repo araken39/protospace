@@ -13,6 +13,11 @@ class PrototypesController < ApplicationController
     redirect_to action: :index
   end
 
+  def show
+    @prototype = Prototype.find(params[:id])
+
+  end
+
 
   private
   def create_params
