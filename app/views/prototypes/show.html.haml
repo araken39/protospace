@@ -23,9 +23,8 @@
       = image_tag(set_main_thumnail(@prototype), class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
-        -# ここはsub画像を複数投稿できるようにJSを導入してからeachで回すようにする
-        %li.list-group-item
-          - @prototype.captured_images.sub.each do |sub|
+        - @prototype.captured_images.sub.each do |sub|
+          %li.list-group-item
             = image_tag(sub.thumbnail, class: 'img-responsive')
   .row.proto-description
     .col-md-3
