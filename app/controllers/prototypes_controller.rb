@@ -1,5 +1,8 @@
 class PrototypesController < ApplicationController
+
+  before_action :set_prototype ,only: :show
   def index
+    @prototypes = Prototype.all
   end
 
   def new
@@ -12,6 +15,10 @@ class PrototypesController < ApplicationController
     redirect_to action: :index
   end
 
+  def show
+  end
+
+
   private
   def create_params
     params.require(:prototype).permit(
@@ -22,4 +29,7 @@ class PrototypesController < ApplicationController
       ).merge(user_id: current_user.id)
   end
 
+  def set_prototype
+    @prototype = Prototype.find(params[:id])
+  end
 end
