@@ -20,19 +20,7 @@
             %h4 Works
             = current_user.works
   .row
-    .col-sm-4.col-md-3.proto-content
-      .thumbnail
-        = link_to image_tag("sample.png"),"#"
-        .caption
-          %h3 Salvation Army on iPad App Wireframe
-          .proto-meta
-            .proto-date
-              Apr 26
-          %ul.proto-tag-list.list-inline
-            %li
-              %a{:href => "#", :class => "btn btn-default"} iPad
-            %li
-              %a{:href => "#", :class => "btn btn-default"} wireframe
+    = render @user_prototypes
 
 .text-center
   %ul.pagination
