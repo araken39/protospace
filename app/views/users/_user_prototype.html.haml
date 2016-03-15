@@ -1,0 +1,14 @@
+.col-sm-4.col-md-3.proto-content
+  .thumbnail
+   = link_to image_tag(set_main_thumnail(user_prototype)), prototype_path(user_prototype)
+    .caption
+      %h3
+        = user_prototype.title
+      .proto-meta
+        .proto-date
+          = user_prototype.created_ats
+      %ul.proto-tag-list.list-inline
+        %li
+          %a{:href => "#", :class => "btn btn-default"} iPad
+        %li
+          %a{:href => "#", :class => "btn btn-default"} wireframe
