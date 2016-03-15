@@ -11,7 +11,11 @@
             =link_to "#{@prototype.user.name}",user_path
             %span.degree
               = @prototype.user.member
-
+            - if current_user.id == @prototype.user_id
+              %span.degree
+                = link_to("Edit", edit_user_prototype_path(current_user.id, @prototype.id))
+              %span.degree
+                = link_to("Delete", user_prototype_path(current_user.id, @prototype.id), method: :delete)
     .col-md-6.text-right
       %button.btn.btn-default
         -# like機能の実装で修正
