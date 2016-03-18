@@ -11,11 +11,11 @@
             =link_to "#{@prototype.user.name}",user_path
             %span.degree
               = @prototype.user.member
-            - if current_user.id == @prototype.user_id
+            - if user_signed_in? && current_user.id == @prototype.user_id
               %span.degree
                 = link_to("Edit", edit_user_prototype_path(current_user.id, @prototype.id))
               %span.degree
-                = link_to("Delete", user_prototype_path(current_user.id, @prototype.id), method: :delete)
+                = link_to("Delete", user_prototype_path(current_user.id, @prototype.id))
     .col-md-6.text-right
       %button.btn.btn-default
         -# like機能の実装で修正
@@ -24,7 +24,7 @@
         %span.num 20
   .row
     .col-md-9
-      = image_tag(set_main_thumnail(@prototype), class: 'img-responsive')
+      = image_tag(set_main_thumbnail(@prototype), class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
         - @prototype.captured_images.sub.each do |sub|
