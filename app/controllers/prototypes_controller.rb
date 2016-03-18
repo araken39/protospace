@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
 
-  before_action :set_prototype ,only: [:show, :edit, :destroy, :update]
+  before_action :set_prototype ,except: [:index, :create, :new]
   def index
     @prototypes = Prototype.all
   end
@@ -11,12 +11,11 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    Prototype.create(create_params)
-    redirect
+    Prototype.create(prototype_params)
+    redirect_to action: :index
   end
 
   def show
-
   end
 
   def edit
@@ -24,52 +23,30 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    if @prototype.user_id == current_user.id
-      @prototype.destroy
-    end
-    redirect
+    @prototype.destroy
+    redirect_to action: :index
   end
 
   def update
-    if @prototype.user_id == current_user.id
-      update_params
-      @prototype.update(update_params)
-    end
-    redirect
+    @prototype.update(prototype_params)
+    redirect_to action: :index
   end
 
-
   private
-  def create_params
+  def prototype_params
     params.require(:prototype).permit(
         :title,
         :catch_copy,
         :concept,
         captured_images_attributes: [
         :thumbnail,
-        :status
+        :status,
+        :id
         ]
       ).merge(user_id: current_user.id)
   end
 
-  def update_params
-    params.require(:prototype).permit(
-      :title,
-      :catch_copy,
-      :concept,
-      captured_images_attributes: [
-      :thumbnail,
-      :status,
-      :id
-      ]
-    )
-  end
-
   def set_prototype
     @prototype = Prototype.find(params[:id])
-  end
-
-  def redirect
-    redirect_to action: :index
   end
 end
