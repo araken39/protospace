@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
 
-  before_action :set_prototype ,except: [:index, :create, :new]
+  before_action :set_prototype ,only: [:show, :edit, :destroy, :update]
   def index
     @prototypes = Prototype.all
   end
