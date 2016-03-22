@@ -2,7 +2,7 @@
   .col-md-8.col-md-offset-2
     %header.row.user-nav.row
       .col-md-12
-        = form_for [current_user, @prototype] do |f|
+        = form_for (@prototype) do |f|
           = f.label :Title
           %br
           = f.text_field :title, autofocus: true, required: true, placeholder:"Title", class: "proto-new-title"
