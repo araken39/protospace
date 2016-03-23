@@ -11,14 +11,14 @@
               .cover-image-uploader
                 = f.label :MainThumbnail
                 %br
-                = f.fields_for :captured_images do |captured_image|
+                = f.fields_for :captured_images, (@prototype.captured_images.main) do |captured_image|
+                  -# ここにshowの画像タグをはるd
                   = captured_image.file_field :thumbnail, required: true
                   = captured_image.hidden_field :status, value: "main"
               %br
               = f.label :Subthumbnails
               %ul.proto-sub-list.list-group
-                = f.fields_for :captured_images do |captured_image|
-                  -# ここはJSで後で実装をする
+                = f.fields_for :captured_images, (@prototype.captured_images.sub) do |captured_image|
                   %li.list-group-item.col-md-4
                     = captured_image.file_field :thumbnail, class:"image-uploader"
                     = captured_image.hidden_field :status, value: "sub"

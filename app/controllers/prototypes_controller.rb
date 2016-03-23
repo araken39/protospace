@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
 
-  before_action :set_prototype ,only: :show
+  before_action :set_prototype ,only: [:show, :edit, :destroy, :update]
   def index
     @prototypes = Prototype.all
   end
@@ -11,21 +11,38 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    Prototype.create(create_params)
+    Prototype.create(prototype_params)
     redirect_to action: :index
   end
 
   def show
   end
 
+  def edit
+    @prototype.captured_images.build
+  end
+
+  def destroy
+    @prototype.destroy
+    redirect_to action: :index
+  end
+
+  def update
+    @prototype.update(prototype_params)
+    redirect_to action: :index
+  end
 
   private
-  def create_params
+  def prototype_params
     params.require(:prototype).permit(
         :title,
         :catch_copy,
         :concept,
-        captured_images_attributes: [:thumbnail, :status]
+        captured_images_attributes: [
+        :thumbnail,
+        :status,
+        :id
+        ]
       ).merge(user_id: current_user.id)
   end
 
