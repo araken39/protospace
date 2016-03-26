@@ -17,11 +17,7 @@
               %span.degree
                 = link_to("Delete", prototype_path(@prototype.id), method: :delete)
     .col-md-6.text-right
-      %button.btn.btn-default
-        -# like機能の実装で修正
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num 20
+      = render partial: "likes/like"
   .row
     .col-md-9
       = image_tag(set_main_thumbnail(@prototype), class: 'img-responsive')
