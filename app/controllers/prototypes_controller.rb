@@ -16,6 +16,8 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @likes = Like.where(prototype_id: params[:id])
+    @like = @likes.where(user_id: current_user.id).first_or_initialize
   end
 
   def edit
