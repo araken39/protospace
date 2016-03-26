@@ -1,0 +1,22 @@
+- if user_signed_in?
+  - if @prototype.like_user(current_user)
+    = link_to prototype_like_path(@prototype,@like), method: :delete, remote: true do
+      %button.btn.btn-default#like-button
+        = image_tag("icon_heart.svg",style: "width: 64px; height: 64px;")
+        Like
+        %span.num
+          = @prototype.like_count
+  - else
+    = form_for [@prototype,@like], remote: true do |f|
+      %button.btn.btn-default#like-button
+        = f.submit "Like", type: "hidden"
+        = image_tag("icon_heart.svg",style: "width: 64px; height: 64px;")
+        Like
+        %span.num
+          = @prototype.like_count
+- else
+  %button.btn.btn-default#like-button
+    = image_tag("",style: "width: 64px; height: 64px;")
+    Like
+    %span.num
+      = @prototype.like_count
